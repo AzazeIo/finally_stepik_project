@@ -23,6 +23,7 @@ class TestProductPage():
         page.should_be_product_name_is_correct()
         page.should_be_product_price_is_correct()
 
+    @pytest.mark.xfail(reason="Success message is present after adding product to basket")
     def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
@@ -36,6 +37,7 @@ class TestProductPage():
         page.open()
         page.should_not_be_success_message()
 
+    @pytest.mark.xfail(reason="Success message is not disappeared")
     def test_message_disappeared_after_adding_product_to_basket(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
         page = ProductPage(browser, link)
