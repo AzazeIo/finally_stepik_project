@@ -22,3 +22,23 @@ class TestProductPage():
         page.solve_quiz_and_get_code()
         page.should_be_product_name_is_correct()
         page.should_be_product_price_is_correct()
+
+    def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        page = ProductPage(browser, link)
+        page.open()
+        page.should_be_add_product_at_the_basket()
+        page.should_not_be_success_message()
+
+    def test_guest_cant_see_success_message(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        page = ProductPage(browser, link)
+        page.open()
+        page.should_not_be_success_message()
+
+    def test_message_disappeared_after_adding_product_to_basket(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        page = ProductPage(browser, link)
+        page.open()
+        page.should_be_add_product_at_the_basket()
+        page.should_dissapear_of_success_message()
