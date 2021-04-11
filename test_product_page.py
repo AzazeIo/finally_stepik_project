@@ -1,8 +1,9 @@
 from .pages.product_page import ProductPage
+from .pages.basket_page import BasketPage
 import pytest
 
 
-class TestProductPage():
+class TestProductPage:
     @pytest.mark.parametrize("promo_offer",
                              ["?promo=offer0",
                               "?promo=offer1",
@@ -56,3 +57,12 @@ class TestProductPage():
         page = ProductPage(browser, link)
         page.open()
         page.go_to_login_page()
+
+    @pytest.mark.new
+    def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        page = BasketPage(browser, link)
+        page.open()
+        page.guest_go_to_basket_page()
+        page.guest_see_empty_basket_page()
+        page.guest_see_basket_empty_message()
