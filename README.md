@@ -41,5 +41,5 @@ https://pypi.org/project/pipenv/
 <br><b>ВАЖНО! Проверить, что в интерпритере есть необходимые пакеты для запуска тестов (В настройка интерпритера должны быть пакеты selenium и urllib3)</b>
 
 <H2>Устновка пакетов из requirements.txt</H2>
-<br><code>pip install -r /path/to/requirements.txt</code>
+<code>pip install -r /path/to/requirements.txt</code>
 <br><code> pip install -r requirements.txt --no-index --find-links file:///tmp/packages</code>
