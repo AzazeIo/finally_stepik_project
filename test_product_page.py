@@ -21,7 +21,7 @@ class TestProductPage:
                               "?promo=offer5",
                               "?promo=offer6",
                               pytest.param("?promo=offer7",
-                                           marks=pytest.mark.xfail(reason="fixing this bug right now")),
+                                           marks=pytest.mark.xfail(reason="fixing non-working promo-offer")),
                               "?promo=offer8",
                               "?promo=offer9"])
     @pytest.mark.need_review
@@ -58,7 +58,6 @@ class TestProductPage:
         page.should_be_login_link()
 
     @pytest.mark.need_review
-    @pytest.mark.new
     def test_guest_can_go_to_login_page_from_product_page(self, browser):
         link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
         page = LoginPage(browser, link)
